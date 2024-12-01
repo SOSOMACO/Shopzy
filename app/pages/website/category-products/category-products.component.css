@@ -1,0 +1,16 @@
+.card {
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .price {
+    font-size: 1.25rem;
+  }
+  
+  .quantity-control button {
+    min-width: 40px;
+  }
+  

@@ -1,0 +1,156 @@
+.cart-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fffad8;}
+.header-style{
+  color: #6a8a08;
+}
+.cart-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+.cart-items table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-items th,
+.cart-items td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-items th {
+  font-weight: bold;
+  color: #6a8a08; 
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+}
+
+.cart-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.cart-details h4 {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control button {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  background-color: #fffad8; 
+  color: #6a8a08; 
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.quantity-control input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.remove-btn {
+  background-color: transparent;
+  color: #d95d39; 
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-summary {
+  border: 1px solid #ddd;
+  padding: 20px;
+  background-color: #fffad8;
+  border-radius: 8px;
+  width: 100%; 
+  overflow: auto; 
+}
+
+.cart-summary h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #6a8a08; 
+}
+
+.cart-summary p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.checkout-btn {
+  background-color: #6a8a08; 
+  color: #fff;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.checkout-btn:hover {
+  background-color: #d95d39; 
+}
+
+@media (max-width: 768px) {
+  .cart-grid {
+      grid-template-columns: 1fr; 
+      gap: 20px;
+  }
+
+  .cart-items th,
+  .cart-items td {
+      padding: 10px; 
+  }
+
+  .cart-details h4 {
+      font-size: 14px; 
+  }
+
+  .cart-summary {
+      padding: 15px; 
+  }
+
+  .cart-summary h4 {
+      font-size: 18px; 
+  }
+
+  .cart-summary p {
+      font-size: 14px; 
+  }
+
+  .checkout-btn {
+      padding: 10px 20px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .quantity-control input {
+      width: 30px;
+  }
+
+  .quantity-control button {
+      padding: 5px; 
+  }
+}

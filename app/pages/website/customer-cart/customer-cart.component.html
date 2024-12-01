@@ -1,0 +1,58 @@
+<div class="cart-container">
+    <h2 class="header-style">Items in my cart</h2>
+  
+    <ng-container *ngIf="cartList.length > 0; else emptyCart">
+      <div class="cart-grid">
+        <div class="cart-items">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Final Price</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cart of cartList">
+                <td>
+                  <div class="cart-item">
+                    <img [src]="cart.productImageUrl" alt="{{cart.productShortName}}" class="cart-img">
+                    <div class="cart-details">
+                      <h4>{{cart.productShortName}}</h4>
+                    </div>
+                  </div>
+                </td>
+                <td>{{cart.productPrice | currency: 'EGP'}}</td>
+                <td>
+                  <div class="quantity-control">
+                    <button (click)="decreaseQuantity(cart)">-</button>
+                    <input type="number" [value]="cart.quantity" min="1" readonly>
+                    <button (click)="increaseQuantity(cart)">+</button>
+                  </div>
+                </td>
+                <td>{{cart.productPrice * cart.quantity | currency: 'EGP'}}</td>
+                <td><button class="remove-btn" (click)="remove(cart.cartId)">X</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <div class="cart-summary">
+          <h4>Summary</h4>
+          <p>Subtotal: {{calculateTotalSubtotal() | currency: 'EGP'}}</p>
+          <p>Shipping Fee: 50 EGP</p>
+          <p>Total Price: {{(calculateTotalSubtotal() + 50) | currency: 'EGP'}}</p>
+          <div class="checkout-button">
+            <button class="checkout-btn" routerLink="/checkout" routerLinkActive="router-link-active" >Proceed to Checkout</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  
+    <ng-template #emptyCart>
+      <p>Your cart is empty. Please add some products.</p>
+    </ng-template>
+  </div>
+  

@@ -1,0 +1,22 @@
+.sub-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+  }
+
+  .cartImg {
+    height: 50px !important;
+    width: 80px !important;
+  }
+  body{
+    background: hsla(52, 100%, 92%, 1);
+
+background: linear-gradient(90deg, hsla(52, 100%, 92%, 1) 50%, hsla(75, 89%, 29%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(52, 100%, 92%, 1) 50%, hsla(75, 89%, 29%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(52, 100%, 92%, 1) 50%, hsla(75, 89%, 29%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFFAD8", endColorstr="#6A8A08", GradientType=1 );
+}

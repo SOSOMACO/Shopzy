@@ -1,0 +1,137 @@
+<div class="checkout-container">
+  <h2>Checkout</h2>
+
+  <div class="checkout-grid">
+    <div class="checkout-form">
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+      
+        <label for="firstName">First Name<abbr title="required">*</abbr></label>
+        <input id="firstName" formControlName="firstName" class="formInput" />
+        <div class="text-danger" *ngIf="checkoutForm.get('firstName')?.invalid && checkoutForm.get('firstName')?.touched">
+          First name is required.
+        </div>
+        
+       
+        <label for="lastName">Last Name<abbr title="required">*</abbr></label>
+        <input id="lastName" formControlName="lastName" class="formInput" />
+        <div class="text-danger" *ngIf="checkoutForm.get('lastName')?.invalid && checkoutForm.get('lastName')?.touched">
+          Last name is required.
+        </div>
+        
+    
+        <label for="phone">Phone<abbr title="required">*</abbr></label>
+        <input id="phone" formControlName="phone" class="formInput" />
+        <div class="text-danger" *ngIf="checkoutForm.get('phone')?.invalid && checkoutForm.get('phone')?.touched">
+          Phone number is required and should be valid.
+        </div>
+        
+      
+        <label for="email">Email<abbr title="required">*</abbr></label>
+        <input id="email" formControlName="email" type="email" class="formInput" />
+        <div class="text-danger" *ngIf="checkoutForm.get('email')?.invalid && checkoutForm.get('email')?.touched">
+          Enter a valid email address.
+        </div>
+
+        
+        <label for="country">Country / Region<abbr title="required">*</abbr></label>
+        <input id="country" formControlName="country" class="formInput" />
+        
+        <label for="streetNumber">Address<abbr title="required">*</abbr></label>
+        <input id="streetNumber" formControlName="streetNumber" class="formInput" />
+        
+        <label for="state">State<abbr title="required">*</abbr></label>
+        <select id="state" formControlName="state" class="formInput">
+          <option value="القاهرة">القاهرة</option>
+          <option value="الجيزة">الجيزة</option>
+        </select>
+        
+        <label for="city">City<abbr title="required">*</abbr></label>
+        <select id="city" formControlName="city" class="formInput">
+          <option value="الدقي">الدقي</option>
+          <option value="المهندسين">المهندسين</option>
+        </select>
+
+        <button type="submit" class="submit-btn">Complete Order</button>
+      </form>
+    </div>
+
+    <div class="checkout-summary">
+      <h3>Your Items</h3>
+      <div class="checkout-items">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Final Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cart of cartList">
+              <td>
+                <div class="checkout-item">
+                  <img [src]="cart.productImageUrl" alt="{{cart.productShortName}}" class="checkout-img">
+                  <div class="checkout-details">
+                    <h4>{{cart.productShortName}}</h4>
+                  </div>
+                </div>
+              </td>
+              <td>{{ cart.productPrice | currency: 'EGP' }}</td>
+              <td>{{ cart.quantity }}</td>
+              <td>{{ cart.productPrice * cart.quantity | currency: 'EGP' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="totals">
+        <p>Subtotal: {{ totalPrice | currency: 'EGP' }}</p>
+        <p>Shipping Fee: {{ shippingFee | currency: 'EGP' }}</p>
+        <p>Total Price: {{ totalPrice + shippingFee | currency: 'EGP' }}</p>
+      </div>
+<form  [formGroup]="checkoutForm" >
+      <div class="payment-options">
+        <label>
+          <input class="form-check-input" type="radio" name="paymentMethod" value="COD" (change)="selectPaymentMethod('COD')">
+          Cash on Delivery (COD)
+        </label>
+        <label>
+          <input class="form-check-input" type="radio" name="paymentMethod" value="Online" (change)="selectPaymentMethod('Online')">
+          Online Cards
+        </label>
+      </div>
+
+      <div *ngIf="selectedPaymentMethod === 'Online'">
+        <div>
+          <input type="text" formControlName="cardNumber" placeholder="Card Number" class="card">
+          <div class="text-danger" *ngIf="checkoutForm.get('cardNumber')?.invalid && checkoutForm.get('cardNumber')?.touched">
+Please enter a valid Visa card number  
+        </div>
+        </div>
+        <div>
+          <input type="text" formControlName="cardHolderName" placeholder="Card Holder Name" class="card">
+          <div class="text-danger" *ngIf="checkoutForm.get('cardHolderName')?.invalid && checkoutForm.get('cardHolderName')?.touched">
+           please enater a valid Card holder name 
+          </div>
+        </div>
+        <div class="Input-container">
+          <input type="text" formControlName="expiryMonth" placeholder="MM" class="">
+          <input type="text" formControlName="expiryYear" placeholder="YY" class="">
+          <input type="text" formControlName="cvv" placeholder="CVV" class="">
+          <div class="text-danger" *ngIf="checkoutForm.get('expiryMonth')?.invalid && checkoutForm.get('expiryMonth')?.touched">
+            Expiry month is required.
+          </div>
+          <div class="text-danger" *ngIf="checkoutForm.get('expiryYear')?.invalid && checkoutForm.get('expiryYear')?.touched">
+            Expiry year is required.
+          </div>
+          <div class="text-danger" *ngIf="checkoutForm.get('cvv')?.invalid && checkoutForm.get('cvv')?.touched">
+            CVV is required.
+          </div>
+        </div>
+      </div>
+    </form>
+
+    </div>
+  </div>
+</div>

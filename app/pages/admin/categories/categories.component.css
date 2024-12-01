@@ -1,0 +1,86 @@
+/* Table Styling */
+table th, table td {
+  vertical-align: middle;
+  padding: 0.75rem; /* Consistent padding for table cells */
+}
+
+/* Card Styling */
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+  border: 1px solid #e0e0e0; /* Light border for separation */
+}
+
+/* Card Header Styling */
+.card-header {
+  padding: 1rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+  background-color: #f8f9fa; /* Light background for headers */
+  border-bottom: 1px solid #e0e0e0; /* Separation from body */
+}
+
+/* Button Styling */
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem; /* Consistent font size for buttons */
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transitions */
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker color on hover */
+  box-shadow: 0 4px 8px rgba(0, 86, 179, 0.3); /* Add shadow on hover */
+}
+
+/* Danger Button */
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333; /* Darker color on hover */
+  box-shadow: 0 4px 8px rgba(200, 35, 51, 0.3); /* Add shadow on hover */
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #565e64;
+  box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+/* General Table Styling */
+.table th {
+  font-weight: 600;
+  background-color: #f1f1f1;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+  .card-header {
+    font-size: 1.1rem; /* Smaller font size for smaller screens */
+  }
+
+  .btn {
+    padding: 0.4rem 0.75rem; /* Reduce padding on smaller screens */
+  }
+}
